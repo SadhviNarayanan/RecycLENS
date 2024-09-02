@@ -1,0 +1,35 @@
+.header {
+    position: relative; /* Ensure relative positioning for absolute positioning within */
+    background-color: #ffffff; /* Optional: Set background color for header */
+    padding: 10px; /* Optional: Add padding for spacing */
+  }
+  
+  .logo {
+    position: absolute; /* Position logo absolutely */
+    top: 10px; /* Adjust top positioning as needed */
+    left: 10px; /* Adjust left positioning as needed */
+    height: 50px; /* Set the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+  }
+  
+
+.navbar {
+    background-color: #ffffff; /* Set background color */
+    overflow: hidden; /* Ensure items stay within the navbar */
+    display: flex; /* Make the navbar a flex container */
+    justify-content: flex-end; /* Align items to the right */
+  }
+  
+  .navbar a {
+    /* float: left; /* Float items to the left */
+    display: block; /* Make items block-level */
+    color: black; /* Text color */
+    text-align: center; /* Center-align text */
+    padding: 14px 16px; /* Padding for better spacing */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd; /* Background color on hover */
+    color: black; /* Text color on hover */
+  }
