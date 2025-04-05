@@ -11,11 +11,10 @@ const NavigationBar = () => {
         <Link to="/home">Home</Link>
         <Link to="/recEvents">Recommended Events</Link>
         <Link to="/events">Events</Link>
-        <Link to="/pastEvents">Past Events</Link>
-        <Link to="/winners">Winners</Link>
+        <Link to="/dashboard">Dashbord</Link>
+        <Link to="/generalPage">General Page</Link>
         <Link to="/leaderboard">Leaderboard</Link>
-        <Link to="/resources">Resources</Link>
-        <Link to="/ETHome">ETHome</Link>
+        <Link to="/LandingPage">CoolPage</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/LogIn">Log In</Link>
         <Link to="/createAccount">Create account</Link>

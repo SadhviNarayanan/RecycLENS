@@ -126,19 +126,18 @@ def receive_login_data():
 @app.route('/register/data', methods=['POST'])
 def receive_register_data():
     data = request.json.get('data')
-    print('Received data:', data)
+    print('Received data Register:', data)
     #list_interests = []
 
     #myObj = JSON.parse(data);
+    name = data.get('name')
+    name = name.capitalize()
     username = data.get('username')
     password = data.get('password')
     password_confirm = data.get('confirm_password')
-    
-    
-    
     #print(login_data)
 
-    if not username or not password:
+    if not name or not username or not password:
         return jsonify({'success': False, 'message': 'Username or password missing'}), 400
 
     
@@ -154,6 +153,7 @@ def receive_register_data():
     else:
         login_data.append(data) # register
         dictionary = {
+            "name": name,
             "username": username,
             "password": password,
             "interests" : list_interests,
@@ -166,6 +166,20 @@ def receive_register_data():
     # Process the data (e.g., perform calculations, interact with APIs)
 
     return jsonify({'message': 'Data received successfully'})
+
+
+@app.route('/get/register/data', methods=['GET'])
+def get_register_data():
+    username = login_data[len(login_data)-1]['username']
+    password = login_data[len(login_data)-1]['password']
+
+    for item in list_data:
+        if (item['username'] == username and item['password'] == password):
+            name = item
+            break
+    
+    print(name)
+    return(jsonify(name))
 
 
 

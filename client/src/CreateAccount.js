@@ -4,6 +4,7 @@ import './App.css';
 
 function CreateAccount({ setIsAuthenticated }) {
   const [formData, setFormData] = useState({
+    name: '',
     username: '',
     password: '',
     confirm_password: '',
@@ -65,6 +66,7 @@ function CreateAccount({ setIsAuthenticated }) {
 
     // Clear form data
     setFormData({
+      name: '',
       username: '',
       password: '',
       confirm_password: '',
@@ -86,10 +88,19 @@ function CreateAccount({ setIsAuthenticated }) {
   };
 
   return (
-    <div>
+    <div className="bkgnd">
       <div className="login-container2">
-        <h2 className="text_center">Create your Geek Account!:</h2>
+        <h2 className="text_center">Create your Account!:</h2>
         <form className="login-form" onSubmit={handleSubmit}>
+        <input
+            placeholder="name"
+            type="text"
+            className="text-box4"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+          />
+          <br />
           <input
             placeholder="username"
             type="text"

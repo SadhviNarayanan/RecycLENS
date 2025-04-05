@@ -1,0 +1,16 @@
+/* Home Page Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  /* Make sure there's no conflict */
+  .features, .testimonials {
+    margin: 0; /* Reset margin to avoid overlap */
+  }
+  

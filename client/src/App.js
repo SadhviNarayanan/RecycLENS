@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Home from './Home';
 import RecEvents from './RecEvents';
 import Events from './Events';
-import PastEvents from './PastEvents';
-import Winners from './Winners';
+import Dashboard from './Dashboard';
+import GeneralPage from './Wellness';
 import Leaderboard from './Leaderboard';
-import Resources from './Resources';
-import ETHome from './ETHome';
+import LandingPage from './LandingPage';
 import Profile from './Profile';
 import NavigationBar from './NavigationBar';
 import LogIn from './LogIn';
 import CreateAccount from './CreateAccount';
+import Option1 from './Option1';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -22,9 +22,13 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} /> {/* Redirect root URL to login page */}
+          <Route path="/landingPage" element={<LandingPage /> } />
+          <Route path="/option1" element={<Option1 /> } />
+          <Route path="/dashboard" element={<Dashboard /> } />
+          <Route path="/generalPage" element={<GeneralPage /> } />
           <Route path="/login" element={<LogIn setIsAuthenticated={setIsAuthenticated} />} />
           <Route path="/createAccount" element={<CreateAccount />} />
-          <Route path="/home" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} /> {/* Redirect unauthorized access to home page to login page */}
+          <Route path="/home" element={<Home /> } /> {/* Redirect unauthorized access to home page to login page */}
           <Route path="/recEvents" element={isAuthenticated ? <RecEvents /> : <Navigate to="/login" />} /> {/* Redirect unauthorized access to home page to login page */}
           <Route path="/events" element={<Events /> } /> {/* Redirect unauthorized access to home page to login page */}
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} /> {/* Redirect unauthorized access to home page to login page */}

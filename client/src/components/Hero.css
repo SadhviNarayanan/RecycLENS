@@ -1,0 +1,62 @@
+/* Hero Section */
+/* older hero version with smaller strip of data { */
+/* This is for the background image of the section */
+.hero-btn {
+  background-image: url("../cool-background.png"); /* Ensure the path is correct */
+  background-position: center;
+  display: flex;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  position: relative; /* Added for positioning overlay if needed */
+  margin: 10px 10px; /* Add left and right margin (20px on both sides) */
+  border-radius: 5px;
+}
+
+/* Hover effect for background image or color change */
+.hero-btn:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Optional dark overlay on hover */
+}
+
+/* Styling for the button inside the section */
+.cta-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Initial button color */
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px; /* Rounded corners for the button */
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #45a049; /* Button color on hover */
+}
+
+
+
+  .spacer {
+    height: 60px; /* Adjust height as needed */
+  }
+
+  .hero-btn h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-btn p {
+    font-size: 18px;
+  }
+
+  
+  /* Global reset to ensure margins and paddings are consistent */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  

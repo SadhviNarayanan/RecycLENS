@@ -1,11 +1,19 @@
-// Home.js
 import React from 'react';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Testimonials from './components/Testimonials';
+import Footer from './components/Footer';
+import './Home.css';
 
 const Home = () => {
   return (
     <div>
-      <h2>Welcome to the Home Page</h2>
-      <p>This is the home page of our application.</p>
+      <Hero />
+      {/* Move Features section up */}
+      <Features />
+      {/* Move Testimonials section up */}
+      <Testimonials />
+      <Footer />
     </div>
   );
 };

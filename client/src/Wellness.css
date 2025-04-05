@@ -1,0 +1,204 @@
+/* src/pages/WellnessPage.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .wellness-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #333;
+    padding: 20px;
+    color: white;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Hero Section */
+  .hero1 {
+    background-image: url("./tree.jpeg"); /* Replace with your hero image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .hero1-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero1-content p {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .cta-button:hover {
+    background-color: #45a049;
+  }
+  
+  .about-section {
+    margin-top: 10px;
+    padding: 50px 20px;
+    background-image: url("./cool-background.png");
+    text-align: center;
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .about-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* About Section */
+  
+  
+  /* Values Section */
+  .values-section {
+    padding: 50px 20px;
+    /* background-image: url("cool-background.png"); */
+  }
+  
+  .values-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .value-item {
+    text-align: center;
+    background-image: url("./blue-bkgnd.jpg");
+    padding: 30px;
+    border-radius: 8px;
+  }
+  
+  .value-item i {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #4CAF50;
+  }
+  
+  .value-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .value-item p {
+    font-size: 16px;
+  }
+
+  .value-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    .value-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  
+  /* Sustainability Section */
+  .sustainability-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .sustainability-images img {
+    width: 400px;
+    margin: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  .social-links {
+    margin-top: 20px;
+  }
+  
+  .social-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+  

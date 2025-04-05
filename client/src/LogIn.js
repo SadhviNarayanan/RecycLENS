@@ -74,7 +74,7 @@ function LogIn({ setIsAuthenticated }) {
   };
 
   return (
-    <div>
+    <div className="bkgnd">
       <div className="login-container2">
         <h2 className="text_center">Login:</h2>
         <form className="login-form" onSubmit={handleSubmit}>
