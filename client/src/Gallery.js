@@ -1,16 +1,27 @@
-// Gallery.js
 import React, { useState, useEffect } from 'react';
-import { db } from './firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { ref, listAll, getDownloadURL } from 'firebase/storage';
+import { storage } from './firebase';
+import './Gallery.css';  // Importing the new CSS file
 
 const Gallery = () => {
-  const [images, setImages] = useState([]);
+  const [imageUrls, setImageUrls] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchImages = async () => {
-      const snapshot = await getDocs(collection(db, 'listings'));
-      const imageData = snapshot.docs.map((doc) => doc.data());
-      setImages(imageData);
+      const listRef = ref(storage, 'images/');
+
+      try {
+        const res = await listAll(listRef);
+        const urls = await Promise.all(
+          res.items.map((itemRef) => getDownloadURL(itemRef))
+        );
+        setImageUrls(urls);
+      } catch (error) {
+        console.error('Error loading images:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchImages();
@@ -19,13 +30,19 @@ const Gallery = () => {
   return (
     <div>
       <h2>Image Gallery</h2>
-      <div className="gallery">
-        {images.map((item, idx) => (
-          <div key={idx} className="image-item">
-            <img src={item.imageUrl} alt="Uploaded" style={{ width: '200px', height: '200px' }} />
-          </div>
-        ))}
-      </div>
+      {loading ? (
+        <p>Loading images...</p>
+      ) : imageUrls.length === 0 ? (
+        <p>No images found.</p>
+      ) : (
+        <div className="gallery">
+          {imageUrls.map((url, idx) => (
+            <div key={idx} className="image-item">
+              <img src={url} alt={`Uploaded ${idx}`} className="gallery-image" />
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

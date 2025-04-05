@@ -1,0 +1,100 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Upload Container */
+  .upload-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  /* Title */
+  .upload-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  
+  /* File Input */
+  .upload-container input[type="file"] {
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #f8f8f8;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-container input[type="file"]:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Upload Button */
+  .upload-container button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .upload-container button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Progress Bar */
+  .progress-container {
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    height: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  
+  /* Loading and Error Messages */
+  .upload-container p {
+    font-size: 1rem;
+    color: #888;
+  }
+  
+  .upload-container p.error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Image Preview */
+  .upload-container img {
+    margin-top: 10px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
