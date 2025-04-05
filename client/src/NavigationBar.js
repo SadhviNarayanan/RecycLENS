@@ -15,6 +15,7 @@ const NavigationBar = () => {
         <Link to="/generalPage">General Page</Link>
         <Link to="/leaderboard">Leaderboard</Link>
         <Link to="/LandingPage">CoolPage</Link>
+        <Link to="/image">Image</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/LogIn">Log In</Link>
         <Link to="/createAccount">Create account</Link>

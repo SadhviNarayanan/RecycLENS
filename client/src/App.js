@@ -12,6 +12,7 @@ import NavigationBar from './NavigationBar';
 import LogIn from './LogIn';
 import CreateAccount from './CreateAccount';
 import Option1 from './Option1';
+import PhotoPage from './PhotoPage';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} /> {/* Redirect root URL to login page */}
           <Route path="/landingPage" element={<LandingPage /> } />
           <Route path="/option1" element={<Option1 /> } />
+          <Route path="/image" element={<PhotoPage /> } />
           <Route path="/dashboard" element={<Dashboard /> } />
           <Route path="/generalPage" element={<GeneralPage /> } />
           <Route path="/login" element={<LogIn setIsAuthenticated={setIsAuthenticated} />} />
