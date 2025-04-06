@@ -14,6 +14,7 @@ login_data = []
 list_data = []
 username = ""
 password = ""
+image_paths = []
 
 
 @app.route("/event/data", methods=["POST"])
@@ -249,11 +250,23 @@ def get_point_data():
 # need to add button so that when selected, it will display recommended events with the 'curl' call to this function
 # need to fix recommendation system
 
+@app.route("/post/image/path", methods=["POST"])
+def image_path():
+    image_path = request.json.get("data")
+    # Define the path to the image file
+    print("Received image path:", image_path)
+    image_paths.append(image_path)
+    # image_path = "path/to/your/image.jpg"  # Replace with your actual image path
+    return jsonify(image_path)
 
-def segregate_img(img_path):
+@app.route("/get/image/classification", methods=["GET"])
+def segregate_img():
     from PIL import Image
     import google.generativeai as genai
-
+    
+    img_path = image_paths[len(image_paths) - 1]
+    print("Received image path:", img_path)
+    #img_path = "/Users/sadhvinarayanan/rec-system/client/apple.jpg"
     genai.configure(api_key="AIzaSyCmFRdCxOFx1AeF7gv7uUJ2TuFGRx2HeKo")
     img = Image.open(img_path)
     model = genai.GenerativeModel("gemini-2.0-flash")
@@ -268,7 +281,7 @@ def segregate_img(img_path):
     # compost
     # recycle
     # trash
-    return response.text
+    return jsonify(response.text)
 
 
 import os

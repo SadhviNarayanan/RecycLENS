@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import './UploadImage.css'; // Import the CSS file
+import './UploadImage.css'; // CSS file for styling
 
 const UploadImage = () => {
   const [file, setFile] = useState(null);
@@ -8,6 +8,7 @@ const UploadImage = () => {
   const [uploadedUrl, setUploadedUrl] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [data2, setData2] = useState(''); // classification result as string
 
   const handleUpload = () => {
     if (!file) {
@@ -15,6 +16,7 @@ const UploadImage = () => {
       return;
     }
 
+    setData2(''); // Clear previous classification result
     const storage = getStorage();
     const storageRef = ref(storage, `images/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -39,6 +41,41 @@ const UploadImage = () => {
         setUploadedUrl(downloadURL);
         setLoading(false);
         console.log('Upload complete:', downloadURL);
+
+        const filePath = `/Users/sadhvinarayanan/Downloads/${file.name}`;
+        console.log('File path:', filePath);
+
+        // POST image path
+        fetch('http://localhost:5001/post/image/path', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ data: filePath })
+        })
+          .then(response => {
+            if (response.ok) {
+              console.log('Data sent successfully');
+              // Now fetch classification
+              return fetch('http://localhost:5001/get/image/classification');
+            } else {
+              console.error('Failed to send data');
+              throw new Error('POST failed');
+            }
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Failed to fetch classification');
+            }
+            return response.json();
+          })
+          .then(jsonData => {
+            setData2(jsonData); // This is the classification string
+            console.log('Classification result:', jsonData);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
       }
     );
   };
@@ -61,9 +98,14 @@ const UploadImage = () => {
       {error && <p className="error">{error}</p>}
 
       {uploadedUrl && (
-        <div>
+        <div className="result-container">
           <p>Image uploaded successfully!</p>
-          <img src={uploadedUrl} alt="Uploaded" />
+          <img src={uploadedUrl} alt="Uploaded" className="uploaded-image" />
+          {data2 && (
+            <div className={`classification-bubble ${data2.toLowerCase()}`}>
+                {data2}
+            </div>
+            )}
         </div>
       )}
     </div>

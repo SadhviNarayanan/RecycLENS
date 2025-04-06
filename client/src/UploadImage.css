@@ -98,3 +98,68 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
+  .uploaded-image {
+    margin-top: 10px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+.classification-result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .result-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  /* Different colors for classification types */
+  .result-tag.recycle {
+    background-color: #4caf50; /* Green */
+  }
+  
+  .result-tag.compost {
+    background-color: #8bc34a; /* Light Green */
+  }
+  
+  .result-tag.trash {
+    background-color: #f44336; /* Red */
+  }
+
+  .classification-bubble {
+    margin: 30px auto;
+    padding: 20px 40px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    max-width: 80%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Classification colors */
+  .classification-bubble.recycle {
+    background-color: #2ecc71; /* Green */
+  }
+  
+  .classification-bubble.trash {
+    background-color: #e74c3c; /* Red */
+  }
+  
+  .classification-bubble.compost {
+    background-color: #a0522d; /* Brown */
+  }
+  
