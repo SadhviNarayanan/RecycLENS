@@ -3,7 +3,7 @@
 /* Full page background setup */
 .landing-page {
     height: 100vh;
-    background-image: url("./cool-background.png"); /* Replace with your image */
+    background-image: url("./cool-background.png"); 
     background-size: cover;
     background-position: center;
     display: flex;
