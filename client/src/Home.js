@@ -8,6 +8,7 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home-container">  
+    
       <div className="map-container">
         <iframe
           title="Pomona Waste Bins"
