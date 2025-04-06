@@ -1,131 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import './App.css'; // Import from App.css
-import carIcon from './car-icon.png'; // Import the car icon image from the appropriate location
+import React from 'react';
+import './Leaderboard.css'; // We'll define this below
+import recycleIcon from './trash-can-blue.png'; // optional
+import compostIcon from './trash-can-green.png'; // optional
 
-function ProgressBar({ width, label, color, height }) {
-  // Calculate the position of the car icon based on the width of the progress bar
-  const carPosition = width - 5; // Adjust the offset as needed
-
+function ProgressBar({ label, percent, color }) {
   return (
-    <div className="progress-container" style={{ height: `${height}px` }}>
-      <div
-        className="progress-bar"
-        style={{ width: `${width}%`, backgroundColor: color }}
-      >
-        
-        {label}
-        <img
-          src={carIcon}
-          alt="Car Icon"
-          className="car-icon"
-          style={{ left: `calc(${carPosition}% + 25px)` }} // Add 10px offset
-        />
+    <div className="progress-bar-container">
+      <div className="label">{label}</div>
+      <div className="progress-bar-wrapper">
+        <div className="progress-bar-fill" style={{ width: `${percent}%`, backgroundColor: color }} />
+        <div className="progress-bar-percent">{percent}%</div>
       </div>
     </div>
   );
 }
 
 function Leaderboard() {
+  const recycleData = [
+    { college: "Claremont McKenna College", score: 92 },
+    { college: "Pomona College", score: 87 },
+    { college: "Scripps College", score: 75 },
+    { college: "Harvey Mudd College", score: 63 },
+    { college: "Pitzer", score: 63 },
+  ];
 
-  const [formData, setFormData] = useState({
-    points: '',
-  });
+  const compostData = [
+    { college: "Harvey Mudd College", score: 90 },
+    { college: "Pomona College", score: 88 },
+    { college: "Pitzer", score: 80 },
+    { college: "Scripps College", score: 72 },
+    { college: "Claremont McKenna College", score: 65 },
+    
+  ];
 
-  const [data, setData] = useState([]);
-
-  
-  
-
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-
-
-    fetch('http://localhost:5001/points/data', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ data: formData })
-    })
-      .then(response => {
-        if (response.ok) {
-          console.log('Data sent successfully');
-          window.location.reload();
-          
-        } else {
-          console.error('Failed to send data');
-        }
-      })
-      .catch(error => {
-        console.error('Error sending data:', error);
-      });
-      // Clear form data
-    setFormData({
-      points: '',
-    });
-  };
-
-  useEffect(() => {
-    // Fetch data from the backend when the component mounts
-    fetchPointData();
-  }, []);
-
-  const fetchPointData = async () => {
-    try {
-      const response = await fetch('http://localhost:5001/get/point/data');
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const jsonData = await response.json();
-      setData(jsonData);
-      console.log(jsonData)
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-
-
-  const handleInputChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value
-    });
-  };
-
-
-  const num = 80;
-  const str = num.toString()
   return (
-    <div>
-      <br></br><br></br>
-      <h2 className = 'leaderboard_text'>Leaderboard (me = yellow)</h2>
-    <div className="Leaderboard">
-      <br></br>
-      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-      <ProgressBar width={data} label= {"ME  " + `${data}%`} color="#FFA726" height={40} /> <br></br>
-      <ProgressBar width={50} label="50%" color="#E74C3C" height={40} /> <br></br>
-      <ProgressBar width={75} label="75%" color="#FF7043" height={40} /> <br></br>
-      <ProgressBar width={90} label="90%" color="#76C7C0" height={40} /> <br></br>
-    </div>
+    <div className="leaderboard-page">
+      <h1 className="title">♻️ Sustainability Leaderboard</h1>
+      <p className="subtitle">Top Colleges in Recycling and Composting</p>
 
-    <div className="login-container3">
-    <h2>Enter your Points:</h2>
-    <form className="login-form" onSubmit={handleSubmit}>
-      <label>
-        Points:
-        <input
-          type="text"
-          className="text-box1"
-          name="points"
-          value={formData.points}
-          onChange={handleInputChange}
-        />
-      </label>
-      <button type="submit">Submit</button>
-      
-    </form>
-    </div>
+      <div className="section">
+        <h2><img src={recycleIcon} alt="recycle" className="icon" /> Recycling Champs</h2>
+        {recycleData.map((entry, idx) => (
+          <ProgressBar
+            key={idx}
+            label={entry.college}
+            percent={entry.score}
+            color="#66bb6a"
+          />
+        ))}
+      </div>
+
+      <div className="section">
+        <h2><img src={compostIcon} alt="compost" className="icon" /> Composting Heroes</h2>
+        {compostData.map((entry, idx) => (
+          <ProgressBar
+            key={idx}
+            label={entry.college}
+            percent={entry.score}
+            color="#a5d6a7"
+          />
+        ))}
+      </div>
     </div>
   );
 }

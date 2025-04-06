@@ -2,9 +2,23 @@ import React from "react";
 
 const Dashboard = () => {
   return (
-    <div style={{ padding: '1.5rem', backgroundColor: 'white', minHeight: '100vh', fontFamily: 'sans-serif' }}>
+    <div
+      style={{
+        padding: '1.5rem',
+        backgroundColor: 'white',
+        fontFamily: 'sans-serif',
+        backgroundImage: 'url("/path/to/cool-background.png")', // Adjust this path accordingly
+        backgroundSize: 'cover', // Ensures the background image covers the whole screen
+        backgroundPosition: 'center', // Centers the background image
+        backgroundAttachment: 'fixed', // Keeps the background fixed during scroll
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        justifyContent: 'flex-start', // Ensures content starts at the top
+      }}
+    >
       <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#16a34a' }}>
-        Welcome to RecycLens Dashboard 🌿
+        Analytics🌿
       </h1>
       <div style={{ display: 'grid', gap: '1.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
         {/* Achievements Card */}

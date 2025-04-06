@@ -1,5 +1,6 @@
 /* src/pages/WellnessPage.css */
 body {
+    background-image: url("./cool-background.png");
     font-family: sans-serif;
     margin: 0;
     padding: 0;
@@ -178,6 +179,7 @@ body {
 
 /* Sustainability Section */
 .sustainability-section {
+    
     padding: 50px 20px;
     background-color: #f9f9f9;
     text-align: center;
@@ -216,6 +218,7 @@ body {
 }
 
 .trash-game {
+    background-image: 'cool-background.png';
     text-align: center;
     padding: 40px 20px;
     background-color: rgba(255,255,255,0.8);
@@ -227,6 +230,7 @@ body {
     margin-top: 20px;
   }
   .trash-game {
+    background-image: 'cool-background.png';
     text-align: center;
     background-color: rgba(255, 255, 255, 0.85);
     padding: 30px;
@@ -239,4 +243,21 @@ body {
     margin-top: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
+  .trash-game {
     
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 16px;
+    margin: 40px auto;
+    max-width: 800px;
+}
+
+.trash-game canvas {
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+ 

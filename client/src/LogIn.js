@@ -35,7 +35,7 @@ function LogIn({ setIsAuthenticated }) {
           console.log('Log In Successful!');
           
           setIsAuthenticated(true);
-          navigate('/home');
+          navigate('/dashboard'); // Redirect to the dashboard page
         }
         else{
           console.log('Invalid Login');

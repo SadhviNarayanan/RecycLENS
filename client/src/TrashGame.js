@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
-import fruitImg from './fruit.png';
-import paperImg from './paper.png';
-import batteryImg from './battery.png';
-import greenCanImg from './trash-can-green.png';
-import blueCanImg from './trash-can-blue.png';
-import redCanImg from './trash-can-red.png';
+import  fruitImg from './fruit.png';
+import  paperImg from './paper.png';
+import  batteryImg from './battery.png';
+import  greenCanImg from './trash-can-green.png';
+import  blueCanImg from './trash-can-blue.png';
+import  redCanImg from './trash-can-red.png';
 
 const OBJECTS = [
-  { name: 'fruit', img: fruitImg, correctBin: 'green' },
-  { name: 'paper', img: paperImg, correctBin: 'blue' },
-  { name: 'battery', img: batteryImg, correctBin: 'red' },
+  { name: ' fruit', img:  fruitImg, correctBin: ' green' },
+  { name: ' paper', img:  paperImg, correctBin: ' blue' },
+  { name: ' battery', img:  batteryImg, correctBin: ' red' },
 ];
 
 const TrashGame = () => {
@@ -27,14 +27,14 @@ const TrashGame = () => {
     const gravity = 0.35;
 
     const trashCans = [
-      { color: 'green', x: 100, y: 330, dx: 1.5, width: 50, height: 60, img: new Image() },
-      { color: 'blue', x: 300, y: 330, dx: 2, width: 50, height: 60, img: new Image() },
-      { color: 'red', x: 500, y: 330, dx: 1.8, width: 50, height: 60, img: new Image() }
+      { color: ' green', x: 100, y: 330, dx: 1.5, width: 50, height: 60, img: new Image() },
+      { color: ' blue', x: 300, y: 330, dx: 2, width: 50, height: 60, img: new Image() },
+      { color: ' red', x: 500, y: 330, dx: 1.8, width: 50, height: 60, img: new Image() }
     ];
 
-    trashCans[0].img.src = greenCanImg;
-    trashCans[1].img.src = blueCanImg;
-    trashCans[2].img.src = redCanImg;
+    trashCans[0].img.src =  greenCanImg;
+    trashCans[1].img.src =  blueCanImg;
+    trashCans[2].img.src =  redCanImg;
 
     let object = {
       x: 50,
@@ -133,7 +133,7 @@ const TrashGame = () => {
   return (
     <div className="trash-game">
       {/* <h2> Isn't it confusing where trash goes?  ♻️</h2> */}
-      <h2>Throw the <strong>{currentObject.name}</strong> into the <strong>{currentObject.correctBin}</strong> bin!</h2>
+      <h2>Throw the    <strong>{currentObject.name}</strong> into the  <strong>{currentObject.correctBin}</strong> bin!</h2>
       <canvas ref={canvasRef} style={{ border: '2px solid #ccc', borderRadius: '12px' }} />
       <p>{message}</p>
       <p>Score: {score}</p>
