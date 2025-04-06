@@ -8,7 +8,7 @@
     position: absolute; /* Position logo absolutely */
     top: 10px; /* Adjust top positioning as needed */
     left: 10px; /* Adjust left positioning as needed */
-    height: 100px; /* Set the height of the logo */
+    height: 120px; /* Set the height of the logo */
     width: auto; /* Maintain aspect ratio */
   }
   
@@ -25,7 +25,7 @@
     display: block; /* Make items block-level */
     color: black; /* Text color */
     text-align: center; /* Center-align text */
-    padding: 14px 16px; /* Padding for better spacing */
+    padding: 14px 10px; /* Padding for better spacing */
     text-decoration: none; /* Remove default underline */
   }
   

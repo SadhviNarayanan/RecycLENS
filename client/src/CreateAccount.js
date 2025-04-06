@@ -22,40 +22,36 @@ function CreateAccount({ setIsAuthenticated }) {
       return;
     }
 
-    if (formData.password != formData.confirm_password) {
-        setError('Passwords do not match');
-        clearErrorAfterTimeout();
-        return;
-      }
+    if (formData.password !== formData.confirm_password) {
+      setError('Passwords do not match');
+      clearErrorAfterTimeout();
+      return;
+    }
 
     try {
       const response = await fetch('http://localhost:5001/register/data', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ data: formData })
+        body: JSON.stringify({ data: formData }),
       });
 
       if (response.ok) {
         const result = await response.json();
-        if (result.success){
+        if (result.success) {
           console.log('User is now registered!');
-          
           navigate('/login');
-        }
-        else if (result.success == 'True2'){
-            console.log('User is already registered');
-            setError(result.message);
-            clearErrorAfterTimeout();
-            navigate('/login');
-          }
-        else{
+        } else if (result.success === 'True2') {
+          console.log('User is already registered');
+          setError(result.message);
+          clearErrorAfterTimeout();
+          navigate('/login');
+        } else {
           console.log('Invalid Register');
           setError(result.message);
           clearErrorAfterTimeout();
         }
-        
       } else {
         console.error('Failed to send data');
         clearErrorAfterTimeout();
@@ -77,7 +73,7 @@ function CreateAccount({ setIsAuthenticated }) {
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -90,10 +86,10 @@ function CreateAccount({ setIsAuthenticated }) {
   return (
     <div className="bkgnd">
       <div className="login-container2">
-        <h2 className="text_center">Create your Account!:</h2>
+        <h2 className="text_center">Create your Account!</h2>
         <form className="login-form" onSubmit={handleSubmit}>
-        <input
-            placeholder="name"
+          <input
+            placeholder="Name"
             type="text"
             className="text-box4"
             name="name"
@@ -102,7 +98,7 @@ function CreateAccount({ setIsAuthenticated }) {
           />
           <br />
           <input
-            placeholder="username"
+            placeholder="Username"
             type="text"
             className="text-box4"
             name="username"
@@ -111,8 +107,8 @@ function CreateAccount({ setIsAuthenticated }) {
           />
           <br />
           <input
-            placeholder="password"
-            type="password" // It's better to use type="password" for password fields
+            placeholder="Password"
+            type="password"
             className="text-box4"
             name="password"
             value={formData.password}
@@ -120,8 +116,8 @@ function CreateAccount({ setIsAuthenticated }) {
           />
           <br />
           <input
-            placeholder="confirm password"
-            type="password" // It's better to use type="password" for password fields
+            placeholder="Confirm Password"
+            type="password"
             className="text-box4"
             name="confirm_password"
             value={formData.confirm_password}
@@ -129,7 +125,7 @@ function CreateAccount({ setIsAuthenticated }) {
           />
           <br />
           {error && <p className="error">{error}</p>}
-          <br></br>
+          <br />
           <button type="submit" className="login_button">Create my account</button>
         </form>
 

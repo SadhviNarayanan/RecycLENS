@@ -53,19 +53,6 @@ const Events = () => {
 
   return (
     <div className="events-page">
-
-      {/* Header Section */}
-      <header className="header">
-        <nav className="nav">
-          <div className="logo">Events</div>
-          <ul className="nav-links">
-            <li><a href="#create">Create</a></li>
-            <li><a href="#upcoming">Upcoming</a></li>
-            <li><a href="#past">Past</a></li>
-          </ul>
-        </nav>
-      </header>
-
       {/* Create Event Section */}
       <section id="create" className="events-section">
         <div className="events-container">

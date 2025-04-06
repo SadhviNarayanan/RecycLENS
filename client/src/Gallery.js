@@ -29,7 +29,7 @@ const Gallery = () => {
 
   return (
     <div>
-      <h2>Image Gallery</h2>
+      <h2 className = "h2">Image Gallery</h2>
       {loading ? (
         <p>Loading images...</p>
       ) : imageUrls.length === 0 ? (

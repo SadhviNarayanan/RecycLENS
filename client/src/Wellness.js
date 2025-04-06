@@ -18,23 +18,12 @@ const Wellness = () => {
             Your browser does not support the video tag.
         </video>
         </div> */}
-        <section id="game" className="game-section">
-  <TrashGame />
-</section>
-
-
-
-      <header className="header">
-        <nav className="nav">
-          {/* <div className="logo">Wellness</div>
-          <ul className="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#sustainability">Sustainability</a></li>
-          </ul> */}
-          <h1 color='black'>Wasn't it difficult to sort trash into the correct bin?</h1>
-        </nav>
+        <header className="header">
+          <h1>Welcome to RecycLENS</h1>
       </header>
+        <section id="game" className="game-section">
+        <TrashGame />
+        </section>
 
       {/* Hero Section */}
       {/* <section className="hero1">

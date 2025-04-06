@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 function LogIn({ setIsAuthenticated }) {
@@ -12,7 +12,7 @@ function LogIn({ setIsAuthenticated }) {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
 
     if (!formData.username || !formData.password) {
       setError('Both username and password are required');
@@ -32,34 +32,29 @@ function LogIn({ setIsAuthenticated }) {
       if (response.ok) {
         const result = await response.json();
         if (result.success){
-          console.log('Log In Successful!');
-          
           setIsAuthenticated(true);
-          navigate('/dashboard'); // Redirect to the dashboard page
-        }
-        else{
-          console.log('Invalid Login');
+          navigate('/dashboard');
+        } else {
           setError(result.message);
           setIsAuthenticated(false);
           clearErrorAfterTimeout();
         }
-        
       } else {
-        console.error('Failed to send data');
+        setError('Login failed, please try again.');
         clearErrorAfterTimeout();
       }
     } catch (error) {
-      console.error('Error sending data:', error);
+      console.error('Error:', error);
+      setError('An error occurred. Please try again.');
+      clearErrorAfterTimeout();
     }
 
-    // Clear form data
     setFormData({
       username: '',
       password: '',
     });
   };
 
-  // Function to handle input change
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
@@ -70,37 +65,33 @@ function LogIn({ setIsAuthenticated }) {
   const clearErrorAfterTimeout = () => {
     setTimeout(() => {
       setError('');
-    }, 1800); // Clear the error message after 10 seconds
+    }, 1800);
   };
 
   return (
     <div className="bkgnd">
       <div className="login-container2">
-        <h2 className="text_center">Login:</h2>
+        <h2 className="text_center">Login</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           <input
-            placeholder="username"
+            placeholder="Username"
             type="text"
             className="text-box4"
             name="username"
             value={formData.username}
             onChange={handleInputChange}
           />
-          <br />
           <input
-            placeholder="password"
-            type="password" // It's better to use type="password" for password fields
+            placeholder="Password"
+            type="password"
             className="text-box4"
             name="password"
             value={formData.password}
             onChange={handleInputChange}
           />
-          <br />
           {error && <p className="error">{error}</p>}
-          <br></br>
           <button type="submit" className="login_button">Log In</button>
         </form>
-
         <aside className="aside">
           Don't have an account? <br />
           <a href="/createAccount">Create one!</a>

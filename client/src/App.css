@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center;
   min-height: 100vh;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 /* Logo Animation */
@@ -114,6 +115,8 @@
   margin-bottom: 20px;
   text-align: center;
   color: #2f6036;
+  font-size: 2rem;
+  display:block;
 }
 
 /* Inputs */
@@ -160,6 +163,15 @@ button[type="submit"]:hover,
   width: 20%;
 }
 
+/* Error message */
+.error {
+  text-align: center;
+  color: #a90805;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
 /* Additional Styles */
 .center {
   text-align: center;
@@ -180,14 +192,6 @@ button[type="submit"]:hover,
   font-size: xx-large;
 }
 
-.error {
-  text-align: center;
-  color: #a90805;
-  font-size: large;
-  font-weight: 1000;
-}
-
-/* Progress Bar */
 .progress-container {
   background-color: #e8f5e9;
   border-radius: 25px;
@@ -261,3 +265,49 @@ button[type="submit"]:hover,
   margin-bottom: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+
+/* Stylish Login Form */
+.login-container2 {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container2 h2 {
+  color: #4CAF50;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.text-box4 {
+  padding: 12px;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.text-box4:focus {
+  border-color: #45a049;
+}
+
+.login_button {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login_button:hover {
+  background-color: #45a049;
+}
+
+.aside {
+  font-size: 1rem;
+  color: #2f6036;
+}
+
