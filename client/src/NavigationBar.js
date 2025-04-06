@@ -14,7 +14,7 @@ const NavigationBar = () => {
         <Link to="/events">Upcoming Events</Link>
         <Link to="/leaderboard">Leaderboard</Link>
         {/* <Link to="/LandingPage">CoolPage</Link> */}
-        <Link to="/image">Upload Image</Link>
+        <Link to="/image">Trash Segregator</Link>
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/profile">Profile</Link>
         <Link to="/LogIn">Log In</Link>

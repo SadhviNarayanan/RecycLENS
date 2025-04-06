@@ -24,6 +24,7 @@
 
 /* Styling for the button inside the section */
 .cta-btn {
+  font-family: sans-serif;
   padding: 10px 20px;
   background-color: #4CAF50; /* Initial button color */
   color: white;

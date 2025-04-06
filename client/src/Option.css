@@ -1,5 +1,6 @@
 /* Features Section */
 .option-container {
+  background-image: url("./cool-background.png");
     max-width: 1400px;
     height: 600px;
     margin: 0 auto;
@@ -9,6 +10,8 @@
   }
 
 .options {
+  background-image: url("./cool-background.png");
+  font-family: sans-serif;
     padding: 20px 0; /* Reducing padding */
     background-image: #f9f9f9;
     margin-top: 0; /* No margin to push it down */

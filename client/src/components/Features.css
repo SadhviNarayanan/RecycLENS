@@ -10,6 +10,7 @@
   }
 
 .features {
+  font-family: sans-serif;
     padding: 20px 0; /* Reducing padding */
     background-image: #f9f9f9;
     margin-top: 0; /* No margin to push it down */

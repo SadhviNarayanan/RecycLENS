@@ -1,6 +1,7 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+  background-image: 'cool-background.png';
+    font-family:  sans-serif;
     background-color: #f9f9f9;
     color: #333;
     margin: 0;
@@ -9,6 +10,7 @@ body {
   
   /* Upload Container */
   .upload-container {
+    background-image: 'cool-background.png';
     background-color: #ffffff;
     padding: 40px;
     border-radius: 10px;

@@ -8,7 +8,7 @@
     position: absolute; /* Position logo absolutely */
     top: 10px; /* Adjust top positioning as needed */
     left: 10px; /* Adjust left positioning as needed */
-    height: 50px; /* Set the height of the logo */
+    height: 100px; /* Set the height of the logo */
     width: auto; /* Maintain aspect ratio */
   }
   

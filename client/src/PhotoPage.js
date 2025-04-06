@@ -6,7 +6,7 @@ import Gallery from './Gallery';
 const PhotoPage = () => {
   return (
     <div>
-      <h1>Firebase Image Upload & Gallery</h1>
+      {/* <h1>Firebase Image Upload & Gallery</h1> */}
       <UploadImage />
       <Gallery />
     </div>

@@ -16,6 +16,7 @@
   
   /* Content container for centered text and buttons */
   .landing-content {
+    font-family: sans-serif;
     max-width: 600px; /* Max width for content */
     padding: 30px;
     background: rgba(18, 49, 226, 0.5); /* Dark overlay to make text stand out */

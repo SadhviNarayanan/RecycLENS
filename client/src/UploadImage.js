@@ -42,7 +42,7 @@ const UploadImage = () => {
         setLoading(false);
         console.log('Upload complete:', downloadURL);
 
-        const filePath = `/Users/sadhvinarayanan/Downloads/${file.name}`;
+        const filePath = `/Users/ishitajain/Downloads/${file.name}`;
         console.log('File path:', filePath);
 
         // POST image path

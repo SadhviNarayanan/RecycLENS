@@ -1,9 +1,11 @@
 .dashboard {
     display: flex;
+    background-image: url("./cool-background.png");
     width: 100%;
   }
   
   .main-content {
+    background-image: url("./cool-background.png");
     margin-left: 250px;
     padding: 30px;
     flex-grow: 1;

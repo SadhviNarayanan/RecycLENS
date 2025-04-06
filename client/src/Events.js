@@ -1,75 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function Events() {
+const Events = () => {
   const [formData, setFormData] = useState({
     name: '',
     date: '',
     description: ''
   });
 
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [pastEvents, setPastEvents] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the backend when the component mounts
-    fetchUpcomingData();
+    fetchData('http://localhost:5001/get/upcoming/events', setUpcomingEvents);
+    fetchData('http://localhost:5001/get/past/events', setPastEvents);
   }, []);
 
-  const fetchUpcomingData = async () => {
+  const fetchData = async (url, setter) => {
     try {
-      const response = await fetch('http://localhost:5001/get/upcoming/events');
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
+      const response = await fetch(url);
+      if (!response.ok) throw new Error('Failed to fetch data');
       const jsonData = await response.json();
-      setData(jsonData);
+      setter(jsonData);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-  useEffect(() => {
-    // Fetch data from the backend when the component mounts
-    fetchPastData();
-  }, []);
-
-  const fetchPastData = async () => {
-    try {
-      const response2 = await fetch('http://localhost:5001/get/past/events');
-      if (!response2.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const jsonData = await response2.json();
-      setData2(jsonData);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-  
-
- 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-  
-   
-  
-    // Clear form data
-    setFormData({
-      name: '',
-      date: '',
-      description: ''
-    });
-  
-    // Optional: Send form data to server
+  const handleSubmit = (e) => {
+    e.preventDefault();
     fetch('http://localhost:5001/event/data', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ data: formData })
     })
-      .then(response => {
+      .then((response) => {
         if (response.ok) {
           console.log('Data sent successfully');
           window.location.reload();
@@ -77,87 +42,123 @@ function Events() {
           console.error('Failed to send data');
         }
       })
-      .catch(error => {
-        console.error('Error sending data:', error);
-      });
-  };
-  
+      .catch((error) => console.error('Error sending data:', error));
 
-  // Function to handle input change
-  const handleInputChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value
-    });
+    setFormData({ name: '', date: '', description: '' });
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
-    <div>
-      <div className="flex-container">
-        <div className="login-container">
-          <h2>Enter your Events:</h2>
-          <form className="login-form" onSubmit={handleSubmit}>
+    <div className="events-page">
+
+      {/* Header Section */}
+      <header className="header">
+        <nav className="nav">
+          <div className="logo">Events</div>
+          <ul className="nav-links">
+            <li><a href="#create">Create</a></li>
+            <li><a href="#upcoming">Upcoming</a></li>
+            <li><a href="#past">Past</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Create Event Section */}
+      <section id="create" className="events-section">
+        <div className="events-container">
+          <h2>Create an Event</h2>
+          <form className="event-form" onSubmit={handleSubmit}>
             <label>
               Event Name:
               <input
                 type="text"
-                className="text-box1"
                 name="name"
+                className="text-input"
                 value={formData.name}
                 onChange={handleInputChange}
+                required
               />
             </label>
-            <br />
             <label>
               Event Date:
               <input
                 type="date"
                 name="date"
+                className="text-input"
                 value={formData.date}
-                className='text-box2'
                 onChange={handleInputChange}
+                required
               />
             </label>
-            <br />
             <label>
               Event Description:
               <textarea
-                className="text-box3"
                 name="description"
+                className="text-area"
                 value={formData.description}
                 onChange={handleInputChange}
+                required
               />
             </label>
-            <br />
-            <button type="submit">Submit</button>
+            <button type="submit" className="cta-button">Submit Event</button>
           </form>
         </div>
-        <div className="login-container">
-          <h2>Upcoming Events:</h2>
-          <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {data.map((item, index) => (
-                <li key={index} className='container'>
-                <div>Event Name: {item.name}</div>
-                <div>Event Date: {item.date}</div>
-                <div>Event Description: {item.description}</div>
-                </li>
-                ))}
-            </ul>
+      </section>
 
-            <h2>Past Events:</h2>
-            <ul style={{ listStyleType: 'none', padding: 0 }}>
-            {data2.map((item, index) => (
-                <li key={index} className='container'>
-                <div>Event Name: {item.name}</div>
-                <div>Event Date: {item.date}</div>
-                <div>Event Description: {item.description}</div>
+      {/* Upcoming Events Section */}
+      <section id="upcoming" className="events-section">
+        <div className="events-container">
+          <h2>Upcoming Events</h2>
+          {upcomingEvents.length === 0 ? (
+            <p>No upcoming events.</p>
+          ) : (
+            <ul className="events-list">
+              {upcomingEvents.map((item, index) => (
+                <li key={index} className="event-card">
+                  <h3>{item.name}</h3>
+                  <p><strong>Date:</strong> {item.date}</p>
+                  <p>{item.description}</p>
                 </li>
-                ))}
+              ))}
             </ul>
+          )}
         </div>
-      </div>
+      </section>
+
+      {/* Past Events Section */}
+      <section id="past" className="events-section">
+        <div className="events-container">
+          <h2>Past Events</h2>
+          {pastEvents.length === 0 ? (
+            <p>No past events available.</p>
+          ) : (
+            <ul className="events-list">
+              {pastEvents.map((item, index) => (
+                <li key={index} className="event-card">
+                  <h3>{item.name}</h3>
+                  <p><strong>Date:</strong> {item.date}</p>
+                  <p>{item.description}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>&copy; 2025 Events. All rights reserved.</p>
+        <div className="social-links">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </footer>
     </div>
   );
-}
+};
 
 export default Events;
