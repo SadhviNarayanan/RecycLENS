@@ -79,10 +79,10 @@
 }
 
 .container:nth-child(odd) {
-  background-color: lightblue; /* Just for demonstration */
+  background-color:  rgb(144, 211, 197); /* Just for demonstration */
 }
 .container:nth-child(even) {
-  background-color: rgb(120, 182, 236); /* Just for demonstration */
+  background-color: rgb(202, 244, 170); /* Just for demonstration */
   color: black;
 }
 
@@ -106,7 +106,7 @@
   height: 40px;
   padding: 1px;
   margin-bottom: 15px;
-  border: 2px solid rgb(45, 119, 193);
+  border: 2px solid rgb(156, 220, 107);
   border-radius: 7px;
 }
 
@@ -115,7 +115,7 @@
   height: 30px;
   padding: 1px;
   margin-bottom: 15px;
-  border: 2px solid rgb(45, 119, 193);
+  border: 2px solid rgb(99, 200, 180);
   border-radius: 7px;
 }
 
@@ -124,7 +124,7 @@
   height: 100px;
   padding: 1px;
   margin-bottom: 15px;
-  border: 2px solid rgb(45, 119, 193);
+  border: 2px solid rgb(156, 220, 107);
   border-radius: 7px;
 }
 
@@ -132,8 +132,8 @@
 .login-form button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #2457a3;
-  color: #fff;
+  background-color: #cbfb85;
+  color:  rgb(10, 76, 63);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -165,7 +165,7 @@
 }
 
 .login-form button[type="submit"]:hover {
-  background-color: #8195e0;
+  background-color: rgb(99, 200, 180);
 }
 
 .center{

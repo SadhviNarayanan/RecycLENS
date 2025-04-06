@@ -1,7 +1,7 @@
 .header {
     position: relative; /* Ensure relative positioning for absolute positioning within */
     background-color: #ffffff; /* Optional: Set background color for header */
-    padding: 10px; /* Optional: Add padding for spacing */
+    padding: -10px; /* Optional: Add padding for spacing */
   }
   
   .logo {

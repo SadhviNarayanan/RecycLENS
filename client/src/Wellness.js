@@ -1,14 +1,24 @@
-// src/pages/WellnessPage.js
-
 import React from "react";
 import "./Wellness.css";
 import './App.css';
 import carIcon from './car-icon.png'; // Ensure the path is correct
+import backgroundVideo from './bknd-video.mp4';
 
+// Then in your JSX
 
-const WellnessPage = () => {
+const Wellness = () => {
   return (
     <div className="wellness-page">
+      
+      {/* Video Background */}
+        <div className="video-background">
+        <video className="video" autoPlay muted loop>
+        <source src={backgroundVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        </div>
+
+
       <header className="header">
         <nav className="nav">
           <div className="logo">Wellness</div>
@@ -23,8 +33,8 @@ const WellnessPage = () => {
       {/* Hero Section */}
       <section className="hero1">
         <div className="hero1-content">
-          <h1>Achieving Wellness, One Step at a Time</h1>
-          <p>Join us in our journey towards a healthier and more sustainable world.</p>
+          <h1></h1>
+          <p></p>
           <a href="#about" className="cta-button">Discover Our Values</a>
         </div>
       </section>
@@ -75,17 +85,15 @@ const WellnessPage = () => {
 
       {/* Footer */}
       <footer className="footer">
-        
           <p>&copy; 2025 Wellness. All rights reserved.</p>
           <div className="social-links">
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-          
-        </div>
+          </div>
       </footer>
     </div>
   );
 };
 
-export default WellnessPage;
+export default Wellness;

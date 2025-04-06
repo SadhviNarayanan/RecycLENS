@@ -8,11 +8,11 @@ const NavigationBar = () => {
     <div className="header">
       <img src="logo.png" alt="Logo" className="logo" />
       <div className="navbar">
+        <Link to="/generalPage">General Page</Link>
         <Link to="/home">Home</Link>
         <Link to="/recEvents">Recommended Events</Link>
         <Link to="/events">Events</Link>
         <Link to="/dashboard">Dashbord</Link>
-        <Link to="/generalPage">General Page</Link>
         <Link to="/leaderboard">Leaderboard</Link>
         <Link to="/LandingPage">CoolPage</Link>
         <Link to="/image">Image</Link>
