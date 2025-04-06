@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="footer">
-        <p>&copy; 2025 My Amazing Website. All Rights Reserved.</p>
+        <p>&copy; 2025 RecycLens. All Rights Reserved.</p>
         <div className="social-links">
           <a href="#">Facebook</a>
           <a href="#">Twitter</a>

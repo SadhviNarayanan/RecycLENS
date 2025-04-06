@@ -124,6 +124,7 @@ body {
 /* Values Section */
 .values-section {
     padding: 50px 20px;
+    background-color: white;
     /* background-image: url("cool-background.png"); */
 }
 

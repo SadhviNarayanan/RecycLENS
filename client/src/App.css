@@ -271,6 +271,17 @@
   width: 40px; /* Adjust size as needed */
 
 }
+.badges{
+  background-color: #f1f1f1;
+  width: 100px;
+  margin:auto;
+}
+
+.badges{
+  background-color: #f1f1f1;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
 
 
 .login-container3 {

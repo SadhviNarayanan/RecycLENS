@@ -12,6 +12,7 @@ import NavigationBar from './NavigationBar';
 import LogIn from './LogIn';
 import CreateAccount from './CreateAccount';
 import Option1 from './Option1';
+import Option2 from './Option2';
 import PhotoPage from './PhotoPage';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} /> {/* Redirect root URL to login page */}
           <Route path="/landingPage" element={<LandingPage /> } />
           <Route path="/option1" element={<Option1 /> } />
+          <Route path="/option2" element={<Option2 /> } /> 
           <Route path="/image" element={<PhotoPage /> } />
           <Route path="/dashboard" element={<Dashboard /> } />
           <Route path="/generalPage" element={<GeneralPage /> } />
