@@ -36,6 +36,8 @@ body {
 }
 
 .nav {
+    color: black;
+    margin-left:450px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -224,4 +226,17 @@ body {
   .trash-game canvas {
     margin-top: 20px;
   }
+  .trash-game {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 16px;
+    margin: 40px auto;
+    max-width: 800px;
+  }
   
+  .trash-game canvas {
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+    

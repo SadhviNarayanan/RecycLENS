@@ -12,7 +12,7 @@ const NavigationBar = () => {
         {/* <Link to="/home">Home</Link> */}
         {/* <Link to="/recEvents">Recommended Events</Link> */}
         <Link to="/events">Upcoming Events</Link>
-        <Link to="/leaderboard">Leaderboard</Link>
+        {/* <Link to="/leaderboard">Leaderboard</Link> */}
         {/* <Link to="/LandingPage">CoolPage</Link> */}
         <Link to="/image">Trash Segregator</Link>
         <Link to="/dashboard">Dashboard</Link>

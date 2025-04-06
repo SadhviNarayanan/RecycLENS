@@ -18,7 +18,7 @@ const Wellness = () => {
             Your browser does not support the video tag.
         </video>
         </div> */}
-        <section id="game-section" className="game-section">
+        <section id="game" className="game-section">
   <TrashGame />
 </section>
 
@@ -26,27 +26,29 @@ const Wellness = () => {
 
       <header className="header">
         <nav className="nav">
-          <div className="logo">Wellness</div>
+          {/* <div className="logo">Wellness</div>
           <ul className="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#values">Values</a></li>
             <li><a href="#sustainability">Sustainability</a></li>
-          </ul>
+          </ul> */}
+          <h1 color='black'>Wasn't it difficult to sort trash into the correct bin?</h1>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="hero1">
+      {/* <section className="hero1">
         <div className="hero1-content">
           <h1></h1>
           <p></p>
           <a href="#about" className="cta-button">Discover Our Values</a>
         </div>
-      </section>
-
+      </section> */}
+   
       {/* About Section */}
       <section id="about" className="about-section">
         <div className="about-container">
+        {/* <h2>Wasn't it difficult to see where trash goes?</h2> */}
           <h2>About RecycLens</h2>
           <p>We believe in climate change from the gut. It should start from your plate and be a community effort. Our mission is to be the link between you and your community and making a real climate impact.  </p>
         </div>
