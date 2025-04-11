@@ -267,7 +267,7 @@ def segregate_img():
     img_path = image_paths[len(image_paths) - 1]
     print("Received image path:", img_path)
     #img_path = "/Users/sadhvinarayanan/rec-system/client/apple.jpg"
-    genai.configure(api_key="AIzaSyCmFRdCxOFx1AeF7gv7uUJ2TuFGRx2HeKo")
+    genai.configure(api_key=API_KEY)
     img = Image.open(img_path)
     model = genai.GenerativeModel("gemini-2.0-flash")
 
